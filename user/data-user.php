@@ -16,7 +16,7 @@ require "../template/sidebar.php";
       <div class="container-fluid">
          <div class="row mb-2">
             <div class="col-sm-6">
-               <h1 class="m-0">Data Pengguna</h1>
+               <h1 class="m-0"><?= $title; ?></h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                <ol class="breadcrumb float-sm-right">
@@ -45,12 +45,44 @@ require "../template/sidebar.php";
                         <th>No</th>
                         <th>Foto</th>
                         <th>Username</th>
-                        <th>Full Name</th>
+                        <th>Nama Lengkap</th>
                         <th>Alamat</th>
                         <th>Level User</th>
                         <th style="width: 10%;">Operasi</th>
                      </tr>
                   </thead>
+                  <tbody>
+                     <?php
+                     $no = 1;
+                     $users = getData("SELECT * FROM tbl_user");
+                     foreach ($users as $user) : ?>
+                        <tr>
+                           <td><?= $no++; ?></td>
+                           <td>
+                              <img src="../asset/image/<?= $user["foto"]; ?>" class="rounded-circle" width="50px" height="50px" alt="">
+                           </td>
+                           <td><?= $user["username"]; ?></td>
+                           <td><?= $user["fullname"]; ?></td>
+                           <td><?= $user["address"]; ?></td>
+                           <td>
+                              <?php
+                              if ($user['level'] == 1) {
+                                 echo "Administrator";
+                              } else if ($user['level'] == 2) {
+                                 echo "Supervisor";
+                              } else {
+                                 echo "Operator";
+                              }
+
+                              ?>
+                           </td>
+                           <td>
+                              <a href="edit-user.php" class="btn btn-sm btn-warning" title="edit user"><i class="fas fa-user-edit"></i></a>
+                              <a href="del-user.php?id=<?= $user["userid"]; ?>&foto=<?= $user["foto"]; ?>" class="btn btn-sm btn-danger" title="edit user" onclick="return confirm('anda yakin akan menghapus akun ini?')"><i class="fas fa-user-times"></i></a>
+                           </td>
+                        </tr>
+                     <?php endforeach; ?>
+                  </tbody>
                </table>
             </div>
          </div>

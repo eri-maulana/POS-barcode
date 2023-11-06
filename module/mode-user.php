@@ -30,7 +30,7 @@ function insert($data)
    if ($gambar != null) {
       $gambar = uploadimg();
    } else {
-      $gambar = 'profil.png';
+      $gambar = 'default.png';
    }
 
    // gambar tidak sesuai validasi 
@@ -41,5 +41,18 @@ function insert($data)
    $sqlUser = "INSERT INTO tbl_user VALUE (null, '$username', '$fullname','$pass','$address','$level','$gambar')";
    mysqli_query($koneksi, $sqlUser);
 
+   return mysqli_affected_rows($koneksi);
+}
+
+
+function delete($id, $foto)
+{
+   global $koneksi;
+
+   $sqlDel = "DELETE FROM tbl_user WHERE userid=$id";
+   mysqli_query($koneksi, $sqlDel);
+   if ($foto != 'default.png') {
+      unlink('../asset/image' . $foto);
+   }
    return mysqli_affected_rows($koneksi);
 }

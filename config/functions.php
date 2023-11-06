@@ -30,3 +30,14 @@ function uploadimg()
    move_uploaded_file($tmp, '../asset/image/' . $namaFileBaru);
    return $namaFileBaru;
 }
+
+function getData($sql)
+{
+   global $koneksi;
+   $result = mysqli_query($koneksi, $sql);
+   $rows = [];
+   while ($row = mysqli_fetch_assoc($result)) {
+      $rows[] = $row;
+   }
+   return $rows;
+}
