@@ -28,7 +28,7 @@ if (isset($_POST['simpan'])) {
       <div class="container-fluid">
          <div class="row mb-2">
             <div class="col-sm-6">
-               <h1 class="m-0">Pengguna</h1>
+               <h1 class="m-0">Data Pengguna</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                <ol class="breadcrumb float-sm-right">
@@ -46,7 +46,7 @@ if (isset($_POST['simpan'])) {
          <div class="card">
             <form action="" method="post" enctype="multipart/form-data">
                <div class="card-header">
-                  <h2 class="card-title text-xl"><i class="fas fa-plus fa-sm mr-2"></i> Tambah User</h2>
+                  <h2 class="card-title text-xl"><i class="fas fa-plus fa-sm mr-2"></i> Tambah Pengguna</h2>
                   <button type="submit" name="simpan" class="btn btn-primary  float-right"><i class="fas fa-save mr-1"></i>
                      Simpan</button>
                   <button type="reset" name="" class="btn btn-danger  float-right mr-1"><i class="fas fa-times mr-1"></i> Batal</button>
