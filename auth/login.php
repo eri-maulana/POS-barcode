@@ -1,4 +1,12 @@
 <?php
+
+session_start();
+
+if (isset($_SESSION['ssLoginPOST'])) {
+   header('location: ../dashboard.php');
+   exit();
+}
+
 require "../config/config.php";
 
 if (isset($_POST['login'])) {
@@ -9,6 +17,8 @@ if (isset($_POST['login'])) {
    if (mysqli_num_rows($queryLogin)) {
       $row = mysqli_fetch_assoc($queryLogin);
       if (password_verify($password, $row['password'])) {
+         $_SESSION['ssLoginPOST'] = true;
+         $_SESSION['ssUserPOST'] = $username;
          header('location: ../dashboard.php');
          exit();
       } else {

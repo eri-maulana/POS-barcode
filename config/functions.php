@@ -1,5 +1,6 @@
 <?php
 
+// fungsi validasi upload gambar profil
 function uploadimg($url = null)
 {
    $namafile = $_FILES['image']['name'];
@@ -47,6 +48,8 @@ function uploadimg($url = null)
    return $namaFileBaru;
 }
 
+
+// fungsi menangkap data dari tabel database
 function getData($sql)
 {
    global $koneksi;
@@ -56,4 +59,32 @@ function getData($sql)
       $rows[] = $row;
    }
    return $rows;
+}
+
+// fungsi menampilkan nama pengguna pada bagian navbar
+function userLogin()
+{
+   $userActive = $_SESSION["ssUserPOST"];
+   $dataUser = getData("SELECT * FROM tbl_user WHERE username = '$userActive'")[0];
+   return $dataUser;
+}
+
+// fungsi untuk memeriksa url yang sedang aktif  
+function userMenu()
+{
+   $uri_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+   $uri_segment = explode('/', $uri_path);
+   $menu = $uri_segment[2]; // 2 adalah urutan folder pada url "setelah folder project"
+   return $menu;
+}
+
+// membuat sidebar dashboard tersorot
+function menuHome()
+{
+   if (userMenu() == 'dashboard.php') {
+      $result = 'active';
+   } else {
+      $result = null;
+   }
+   return $result;
 }

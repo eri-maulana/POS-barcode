@@ -5,7 +5,7 @@ date_default_timezone_set('Asia/Jakarta');
 $host = 'localhost';
 $username = 'root';
 $password = '';
-$database = 'kasir-barcode';
+$database = 'pos-barcode';
 
 $koneksi = mysqli_connect($host, $username, $password, $database);
 // if(mysqli_connect_errno()){
@@ -15,7 +15,7 @@ $koneksi = mysqli_connect($host, $username, $password, $database);
 //    echo "database berhasil terkoneksi";
 // }
 
-$main_url = 'http://localhost/kasir-barcode/';
+$main_url = 'http://localhost/POS-barcode/';
 
 
 ?>

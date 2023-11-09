@@ -1,5 +1,14 @@
 <?php
+
+   session_start();
+
+   if (!isset($_SESSION['ssLoginPOST'])) {
+      header("location: auth/login.php");
+      exit();
+   }
+
 require "config/config.php";
+require "config/functions.php";
 
 $title = "Dashboard - POS barcode";
 require "template/header.php";

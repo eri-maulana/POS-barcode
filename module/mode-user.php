@@ -1,4 +1,11 @@
 <?php
+
+if (userLogin()['level'] != 1) {
+   header('location: ' . $main_url . 'error-page.php');
+   exit();
+}
+
+// fungsi menambahkan data pengguna baru
 function insert($data)
 {
    global $koneksi;
@@ -38,13 +45,13 @@ function insert($data)
       return false;
    }
 
-   $sqlUser = "INSERT INTO tbl_user VALUE (null, '$username', '$fullname','$pass','$address','$level','$gambar')";
+   $sqlUser = "INSERT INTO tbl_user VALUE (null, '$username', '$fullname','$pass','$address','$level','$gambar ')";
    mysqli_query($koneksi, $sqlUser);
 
    return mysqli_affected_rows($koneksi);
 }
 
-
+// fungsi menghapus data pengguna 
 function delete($id, $foto)
 {
    global $koneksi;
@@ -52,11 +59,12 @@ function delete($id, $foto)
    $sqlDel = "DELETE FROM tbl_user WHERE userid=$id";
    mysqli_query($koneksi, $sqlDel);
    if ($foto != 'default.png') {
-      unlink('../asset/image' . $foto);
+      unlink('../asset/image ' . $foto);
    }
    return mysqli_affected_rows($koneksi);
 }
 
+// fungsi konversi role/level data pengguna
 function selectUser1($level)
 {
    $result = null;
@@ -87,6 +95,7 @@ function selectUser3($level)
    return $result;
 }
 
+// fungsi mengubah data pengguna 
 function update($data)
 {
    global $koneksi;
