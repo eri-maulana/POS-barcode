@@ -41,7 +41,7 @@ require "../template/sidebar.php";
       <div class="container-fluid">
          <div class="card">
             <div class="card-header">
-               <h3 class="card-title"><i class="fas fa-list fa-sm mr-2"></i>Data Pengguna</h3>
+               <h3 class="card-title pt-2"><i class="fas fa-list fa-sm mr-2"></i>Data Pengguna</h3>
                <div class="card-tools">
                   <a href="<?= $main_url; ?>user/add-user.php" class="btn btn-primary btn-sm"><i class="fas fa-plus mr-2"></i>Tambah Pengguna </a>
                </div>

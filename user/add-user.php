@@ -19,6 +19,7 @@ if (isset($_POST['simpan'])) {
    if (insert($_POST) > 0) {
       echo "<script>
                alert('Berhasil Melakukan Pendaftaran.~');
+               document.location.href = 'data-user.php';
             </script>";
       return false;
    }
@@ -54,7 +55,7 @@ if (isset($_POST['simpan'])) {
          <div class="card">
             <form action="" method="post" enctype="multipart/form-data">
                <div class="card-header">
-                  <h2 class="card-title text-xl"><i class="fas fa-plus fa-sm mr-2"></i> Tambah Pengguna</h2>
+                  <h2 class="card-title pt-2"><i class="fas fa-plus fa-sm mr-2"></i> Tambah Pengguna</h2>
                   <button type="submit" name="simpan" class="btn btn-primary  float-right"><i class="fas fa-save mr-1"></i>
                      Simpan</button>
                   <button type="reset" name="" class="btn btn-danger  float-right mr-1"><i class="fas fa-times mr-1"></i> Batal</button>

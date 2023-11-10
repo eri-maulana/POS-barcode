@@ -21,6 +21,7 @@ function insert($data)
    if ($password != $password2) {
       echo "<script>
                alert('Kata Sandi Salah !!');
+               document.location.href = 'data-user.php';
             </script>";
       return false;
    }
@@ -30,6 +31,7 @@ function insert($data)
    if (mysqli_num_rows($cekUsername) > 0) {
       echo '<script>
                alert("username sudah terpakai");
+               document.location.href = "data-user.php";
             </script>';
       return false;
    }
