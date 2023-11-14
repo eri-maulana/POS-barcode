@@ -88,3 +88,25 @@ function menuHome()
    }
    return $result;
 }
+
+// fungsi membuat menu master terbuka
+function menuMaster()
+{
+   if (userMenu() == 'supplier') {
+      $result = 'menu-is-open menu-open';
+   } else {
+      $result = null;
+   }
+   return $result;
+}
+
+// membuat sidebar supplier tersorot ketika berada di halaman tersebut
+function menuSupplier()
+{
+   if (userMenu() == 'supplier') {
+      $result = 'active';
+   } else {
+      $result = null;
+   }
+   return $result;
+}

@@ -7,6 +7,7 @@ if (userLogin()['level'] == 3) {
    exit();
 }
 
+// fungsi menambahkan data supplier baru
 function insert($data)
 {
    global $koneksi;
@@ -18,6 +19,20 @@ function insert($data)
 
    $sqlSupplier = "INSERT INTO tbl_supplier VALUES (null, '$nama', '$telpon', '$ketr', '$alamat')";
    mysqli_query($koneksi, $sqlSupplier);
+
+   return mysqli_affected_rows($koneksi);
+}
+
+
+
+// fungsi menghapus data supplier 
+function delete($id)
+{
+   global $koneksi;
+
+   $sqlDel = "DELETE FROM tbl_supplier WHERE id_supplier='$id'";
+   mysqli_query($koneksi, $sqlDel);
+
 
    return mysqli_affected_rows($koneksi);
 }

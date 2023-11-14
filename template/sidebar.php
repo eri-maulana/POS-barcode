@@ -35,7 +35,7 @@
             <?php
             if (userLogin()['level'] != 3) {
             ?>
-               <li class="nav-item">
+               <li class="nav-item  <?= menuMaster(); ?>">
                   <a href="#" class="nav-link">
                      <i class="fas fa-folder  nav-icon text-sm"></i>
                      <p>
@@ -45,7 +45,7 @@
                   </a>
                   <ul class="nav nav-treeview ml-4">
                      <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="<?= $main_url; ?>supplier/data-supplier.php" class="nav-link <?= menuSupplier(); ?> ">
                            <i class="far fa-circle nav-icon text-sm "></i>
                            <p>Supplier</p>
                         </a>
