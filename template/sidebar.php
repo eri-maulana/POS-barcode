@@ -51,7 +51,7 @@
                         </a>
                      </li>
                      <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="<?= $main_url; ?>customer/data-customer.php" class="nav-link <?= menuCustomer(); ?>">
                            <i class="far fa-circle nav-icon text-sm "></i>
                            <p>Pelanggan</p>
                         </a>
