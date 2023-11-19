@@ -1,7 +1,7 @@
 <?php
 
 // fungsi validasi upload gambar profil
-function uploadimg($url = null)
+function uploadimg($url = null, $name = null)
 {
    $namafile = $_FILES['image']['name'];
    $ukuran   = $_FILES['image']['size'];
@@ -42,7 +42,12 @@ function uploadimg($url = null)
       }
    }
 
-   $namaFileBaru = rand(10, 1000) . '-' . $namafile;
+   if ($name != null) {
+      $namaFileBaru = $name . '.' . $ekstensiGambar;
+   } else {
+      $namaFileBaru = rand(10, 1000) . '-' . $namafile;
+   }
+
 
    move_uploaded_file($tmp, '../asset/image/' . $namaFileBaru);
    return $namaFileBaru;
