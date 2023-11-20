@@ -67,7 +67,7 @@ if ($msg == 'aborted') {
       </div><!-- /.container-fluid -->
    </div>
 
-   <section>
+   <section class="content">
       <div class="container-fluid">
          <div class="card">
             <?php

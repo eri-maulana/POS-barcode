@@ -34,7 +34,7 @@ function insert($data)
    $harga_beli = mysqli_real_escape_string($koneksi, $data['harga_beli']);
    $harga_jual = mysqli_real_escape_string($koneksi, $data['harga_jual']);
    $stock_minimal = mysqli_real_escape_string($koneksi, $data['stock_minimal']);
-   $gambar = mysqli_real_escape_string($koneksi, $_FILES['image']['nama']);
+   $gambar = mysqli_real_escape_string($koneksi, $_FILES['image']['name']);
 
    $cekBarcode = mysqli_query($koneksi, "SELECT * FROM tbl_barang WHERE barcode = '$barcode'");
    if (mysqli_num_rows($cekBarcode)) {
@@ -56,8 +56,22 @@ function insert($data)
       return false;
    }
 
-   $sqlBarang = "INSERT INTO tbl_barang VALUE ('$id', '$barcode', '$nama','$harga_beli','$harga_jual',0,'$satuan','$stock_minimal','$gambar ')";
+   $sqlBarang = "INSERT INTO tbl_barang VALUE ('$id', '$barcode', '$nama','$harga_beli','$harga_jual',0,'$satuan','$stock_minimal','$gambar')";
    mysqli_query($koneksi, $sqlBarang);
+
+   return mysqli_affected_rows($koneksi);
+}
+
+// fungsi menghapus data barang 
+function delete($id, $gbr)
+{
+   global $koneksi;
+
+   $sqlDel = "DELETE FROM tbl_barang WHERE id_barang='$id'";
+   mysqli_query($koneksi, $sqlDel);
+   if ($gbr != 'default-brg.png') {
+      unlink('../asset/image/' . $gbr);
+   }
 
    return mysqli_affected_rows($koneksi);
 }

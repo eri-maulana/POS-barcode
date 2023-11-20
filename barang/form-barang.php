@@ -42,7 +42,7 @@ if (isset($_POST['simpan'])) {
             <div class="col-sm-6">
                <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="<?= $main_url; ?>dashboard.php">Home</a></li>
-                  <li class="breadcrumb-item"><a href="<?= $main_url; ?>barang/data-barang.php">Data Barang</a>
+                  <li class="breadcrumb-item"><a href="<?= $main_url; ?>barang">Data Barang</a>
                   </li>
                   <li class="breadcrumb-item active">Tambah Barang</li>
                </ol>
@@ -94,7 +94,7 @@ if (isset($_POST['simpan'])) {
                            </select>
                         </div>
                         <div class="form-group">
-                           <label for="harga_beli">Harga Jual</label>
+                           <label for="harga_beli">Harga Beli</label>
                            <input type="number" name="harga_beli" id="harga_beli" class="form-control" autocomplete="off">
                         </div>
                         <div class="form-group">

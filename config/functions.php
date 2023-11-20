@@ -97,7 +97,7 @@ function menuHome()
 // fungsi membuat menu master terbuka
 function menuMaster()
 {
-   if (userMenu() == 'supplier' || userMenu() == 'customer') {
+   if (userMenu() == 'supplier' || userMenu() == 'customer' || userMenu() == 'barang') {
       $result = 'menu-is-open menu-open';
    } else {
       $result = null;
@@ -120,6 +120,17 @@ function menuSupplier()
 function menuCustomer()
 {
    if (userMenu() == 'customer') {
+      $result = 'active';
+   } else {
+      $result = null;
+   }
+   return $result;
+}
+
+// membuat sidebar barang tersorot ketika berada di halaman tersebut
+function menuBarang()
+{
+   if (userMenu() == 'barang') {
       $result = 'active';
    } else {
       $result = null;
