@@ -24,7 +24,7 @@ if (isset($_GET['msg'])) {
 }
 
 $alert = '';
-// jalankan fungsi hapus barang
+// fungsi alert hapus barang
 if ($msg == 'deleted') {
    $id = $_GET['id'];
    $gbr = $_GET['gbr'];
@@ -37,6 +37,26 @@ if ($msg == 'deleted') {
                   body   : 'Data Barang Berhasil Dihapus dari Database.',
                   class  : 'bg-success',
                   icon   : 'fas fa-check-circle',
+               })
+            });
+            </script>      
+            ";
+}
+// fungsi alert ubah barang
+if ($msg == 'updated') {
+   $user = userLogin()['username'];
+   $gbrUser = userLogin()['foto'];
+   $alert = "
+            <script>
+            $(document).ready(function(){
+               $(document).Toasts('create', {
+                  title  : '$user',
+                  body   : 'Data Barang Berhasil Diubah dari Database.',
+                  class  : 'bg-success',
+                  image   : '../asset/image/$gbrUser',
+                  position : 'bottomRight',
+                  autohide : true,
+                  delay : 3000,
                })
             });
             </script>      
@@ -109,7 +129,9 @@ if ($msg == 'deleted') {
                            <td class="text-center"><?= number_format($brg['harga_jual'], 0, ',', '.'); ?></td>
                            <td>
                               <!-- tombol edit barang -->
-                              <a href="edit-barang.php?id=<?= $brg['id_barang']; ?>" class="btn btn-sm btn-warning" title="edit barang"><i class="fas fa-edit"></i></a>
+                              <a href="form-barang.php?id=<?= $brg['id_barang'] ?>&msg=editing" class="btn btn-sm btn-warning" title="edit barang">
+                                 <i class="fas fa-pen"></i>
+                              </a>
 
                               <!-- tombol hapus barang -->
                               <a href="?id=<?= $brg['id_barang']; ?>&gbr=<?= $brg['gambar']; ?>&msg=deleted" class="btn btn-sm btn-danger" title="hapus barang" onclick="return confirm('anda yakin akan menghapus data barang ini?')">
