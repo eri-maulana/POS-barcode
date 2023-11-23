@@ -96,7 +96,7 @@ function update($data)
    $curBarcode = $dataBrg['barcode'];
 
    // barcode baru
-   $cekBarcode = mysqli_query($koneksi, "SELECT * FROM tbl_barang WHERE barcode = '$barcode'");
+   $cekBarcode = mysqli_query($koneksi, "SELECT * FROM tbl_barang WHERE id_barang = '$id'");
 
    // jika barcode diganti
    if ($barcode !== $curBarcode) {
@@ -117,7 +117,7 @@ function update($data)
       } else {
          $nmgbr = $id . '-' . rand(10, 1000);
       }
-      $imgBrg = uploadimg(null, $id);
+      $imgBrg = uploadimg($url, $nmgbr);
       if ($gbrLama != "default-brg.png") {
          @unlink('../asset/image/' . $gbrLama);
       }
