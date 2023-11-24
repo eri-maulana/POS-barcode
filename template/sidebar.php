@@ -69,7 +69,7 @@
             ?>
             <li class="nav-header">Transaksi</li>
             <li class="nav-item">
-               <a href="" class="nav-link">
+               <a href="<?= $main_url ?>barang-masuk" class="nav-link">
                   <i class="fas fa-shopping-cart nav-icon text-sm "></i>
                   <p>Barang Masuk</p>
                </a>
