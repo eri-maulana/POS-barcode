@@ -52,7 +52,7 @@ if (isset($_POST['addBrg'])) {
     }
 }
 
-// menyimpan data tabel checkout ke data transaksi 
+// menyimpan data tabel checkout ke data table head 
 if (isset($_POST['simpan'])) {
     if (simpan($_POST)) {
         echo "<script>

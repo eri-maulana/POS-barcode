@@ -75,7 +75,7 @@
                </a>
             </li>
             <li class="nav-item">
-               <a href="" class="nav-link">
+               <a href="<?= $main_url ?>barang-keluar" class="nav-link">
                   <i class="fas fa-file-invoice nav-icon text-sm "></i>
                   <p>Barang Keluar</p>
                </a>
