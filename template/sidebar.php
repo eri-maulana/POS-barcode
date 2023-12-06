@@ -82,7 +82,7 @@
             </li>
             <li class="nav-header">Laporan</li>
             <li class="nav-item">
-               <a href="" class="nav-link">
+               <a href="<?= $main_url ?>laporan-barang-masuk" class="nav-link">
                   <i class="fas fa-chart-pie nav-icon text-sm "></i>
                   <p>Laporan Barang Masuk</p>
                </a>

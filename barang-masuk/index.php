@@ -92,13 +92,11 @@ $noBeli = generateNo();
                             <div class="form-group row mb-2">
                                 <label for="noNota" class="col-sm-2 col-form-label">No Nota</label>
                                 <div class="col-sm-4">
-                                    <input type="text" name="nobeli" class="form-control" id="noNota"
-                                        value="<?= $noBeli ?>" readonly>
+                                    <input type="text" name="nobeli" class="form-control" id="noNota" value="<?= $noBeli ?>" readonly>
                                 </div>
                                 <label for="tglNota" class="col-sm-2 col-form-label">Tanggal Nota</label>
                                 <div class="col-sm-4">
-                                    <input type="date" name="tglNota" class="form-control" id="tglNota"
-                                        value="<?= @$_GET['tgl'] ? $_GET['tgl'] : date('Y-m-d') ?>" required>
+                                    <input type="date" name="tglNota" class="form-control" id="tglNota" value="<?= @$_GET['tgl'] ? $_GET['tgl'] : date('Y-m-d') ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row mb-2 mt-2">
@@ -111,9 +109,8 @@ $noBeli = generateNo();
                                         foreach ($barang as $brg) {
                                         ?>
 
-                                        <option
-                                            value="?pilihbrg=<?= $brg['id_barang'] ?><?= @$_GET['pilihbrg'] == $brg['id_barang'] ? 'selected' : null; ?>">
-                                            <?= $brg['id_barang'] . "|" . $brg['nama_barang'] ?></option>
+                                            <option value="?pilihbrg=<?= $brg['id_barang'] ?><?= @$_GET['pilihbrg'] == $brg['id_barang'] ? 'selected' : null; ?>">
+                                                <?= $brg['id_barang'] . "|" . $brg['nama_barang'] ?></option>
                                         <?php
                                         }
                                         ?>
@@ -137,46 +134,39 @@ $noBeli = generateNo();
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <input type="hidden" name="kodeBrg"
-                                    value="<?= @$_GET['pilihbrg'] ? $selectbrg['id_barang'] : ''; ?>">
+                                <input type="hidden" name="kodeBrg" value="<?= @$_GET['pilihbrg'] ? $selectbrg['id_barang'] : ''; ?>">
                                 <label for="namaBrg">Nama Barang</label>
-                                <input type="text" name="namaBrg" id="namaBrg" class="form-control form-control-sm"
-                                    value="<?= @$_GET['pilihbrg'] ? $selectbrg['nama_barang'] : ''; ?>" readonly>
+                                <input type="text" name="namaBrg" id="namaBrg" class="form-control form-control-sm" value="<?= @$_GET['pilihbrg'] ? $selectbrg['nama_barang'] : ''; ?>" readonly>
                             </div>
                         </div>
                         <div class="col-lg-1">
                             <div class="form-group">
                                 <label for="stok">Stok</label>
-                                <input type="number" name="stok" id="stok" class="form-control form-control-sm"
-                                    value="<?= @$_GET['pilihbrg'] ? $selectbrg['stock'] : ''; ?>" readonly>
+                                <input type="number" name="stok" id="stok" class="form-control form-control-sm" value="<?= @$_GET['pilihbrg'] ? $selectbrg['stock'] : ''; ?>" readonly>
                             </div>
                         </div>
                         <div class="col-lg-1">
                             <div class="form-group">
                                 <label for="satuan">Satuan</label>
-                                <input type="text" name="satuan" id="satuan" class="form-control form-control-sm"
-                                    value="<?= @$_GET['pilihbrg'] ? $selectbrg['satuan'] : ''; ?>" readonly>
+                                <input type="text" name="satuan" id="satuan" class="form-control form-control-sm" value="<?= @$_GET['pilihbrg'] ? $selectbrg['satuan'] : ''; ?>" readonly>
                             </div>
                         </div>
                         <div class="col-lg-2">
                             <div class="form-group">
                                 <label for="harga">Harga</label>
-                                <input type="number" name="harga" id="harga" class="form-control form-control-sm"
-                                    value="<?= @$_GET['pilihbrg'] ? $selectbrg['harga_beli'] : ''; ?>" readonly>
+                                <input type="number" name="harga" id="harga" class="form-control form-control-sm" value="<?= @$_GET['pilihbrg'] ? $selectbrg['harga_beli'] : ''; ?>" readonly>
                             </div>
                         </div>
                         <div class="col-lg-2">
                             <div class="form-group">
                                 <label for="qty">Qty</label>
-                                <input type="number" name="qty" id="qty" class="form-control form-control-sm"
-                                    value="<?= @$_GET['pilihbrg'] ? 1 : ''; ?>">
+                                <input type="number" name="qty" id="qty" class="form-control form-control-sm" value="<?= @$_GET['pilihbrg'] ? 1 : ''; ?>">
                             </div>
                         </div>
                         <div class="col-lg-2">
                             <div class="form-group">
                                 <label for="jmlHarga">Jumlah Harga</label>
-                                <input type="number" name="jmlHarga" id="jmlHarga" class="form-control form-control-sm"
-                                    value="<?= @$_GET['pilihbrg'] ? $selectbrg['harga_beli'] : ''; ?>" readonly>
+                                <input type="number" name="jmlHarga" id="jmlHarga" class="form-control form-control-sm" value="<?= @$_GET['pilihbrg'] ? $selectbrg['harga_beli'] : ''; ?>" readonly>
                             </div>
                         </div>
                     </div>
@@ -202,21 +192,19 @@ $noBeli = generateNo();
                             $no = 1;
                             $brgDetail = getData("SELECT * FROM tbl_beli_detail WHERE no_beli = '$noBeli'");
                             foreach ($brgDetail as $detail) { ?>
-                            <tr>
-                                <td><?= $no++; ?></td>
-                                <td><?= $detail['kode_brg']; ?></td>
-                                <td><?= $detail['nama_brg']; ?></td>
-                                <td class="text-right"><?= number_format($detail['harga_beli'], 0, ',', '.'); ?></td>
-                                <td class="text-right"><?= $detail['qty'] ?></td>
-                                <td class="text-right"><?= number_format($detail['jml_harga'], 0, ',', '.'); ?></td>
-                                <td class="text-center">
-                                    <a href="?idbrg=<?= $detail['kode_brg'] ?>&idbeli=<?= $detail['no_beli'] ?>&qty=<?= $detail['qty'] ?>&tgl=<?= $detail['tgl_beli'] ?>&msg=deleted"
-                                        class="btn btn-sm btn-danger" title="Hapus Barang"
-                                        onclick="return confirm('Anda Yakin Ingin Menghapus ?')">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td><?= $no++; ?></td>
+                                    <td><?= $detail['kode_brg']; ?></td>
+                                    <td><?= $detail['nama_brg']; ?></td>
+                                    <td class="text-right"><?= number_format($detail['harga_beli'], 0, ',', '.'); ?></td>
+                                    <td class="text-right"><?= $detail['qty'] ?></td>
+                                    <td class="text-right"><?= number_format($detail['jml_harga'], 0, ',', '.'); ?></td>
+                                    <td class="text-center">
+                                        <a href="?idbrg=<?= $detail['kode_brg'] ?>&idbeli=<?= $detail['no_beli'] ?>&qty=<?= $detail['qty'] ?>&tgl=<?= $detail['tgl_beli'] ?>&msg=deleted" class="btn btn-sm btn-danger" title="Hapus Barang" onclick="return confirm('Anda Yakin Ingin Menghapus ?')">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
                             <?php
                             }
                             ?>
@@ -234,8 +222,8 @@ $noBeli = generateNo();
                                     $supliers = getData("SELECT * FROM tbl_supplier");
                                     foreach ($supliers as $suplier) {
                                     ?>
-                                    <option value="<?= $suplier['nama'] ?>">
-                                        <?= $suplier['nama'] ?> </option>
+                                        <option value="<?= $suplier['nama'] ?>">
+                                            <?= $suplier['nama'] ?> </option>
                                     <?php
                                     }
                                     ?>
@@ -250,8 +238,7 @@ $noBeli = generateNo();
                         </div>
                     </div>
                     <div class="col-lg-6 pt-3 ">
-                        <button type="submit" name="simpan" id="simpan" class="btn btn-primary btn-sm btn-block"><i
-                                class="fas fa-save mr-3"></i> Simpan</button>
+                        <button type="submit" name="simpan" id="simpan" class="btn btn-primary btn-sm btn-block"><i class="fas fa-save mr-3"></i> Simpan</button>
                     </div>
                 </div>
             </form>
@@ -259,18 +246,18 @@ $noBeli = generateNo();
     </section>
 
     <script>
-    let pilihbrg = document.getElementById('kodeBrg');
-    let tgl = document.getElementById('tglNota');
-    pilihbrg.addEventListener('change', function() {
-        document.location.href = this.options[this.selectedIndex].value + "&tgl=" + tgl.value;
-    })
+        let pilihbrg = document.getElementById('kodeBrg');
+        let tgl = document.getElementById('tglNota');
+        pilihbrg.addEventListener('change', function() {
+            document.location.href = this.options[this.selectedIndex].value + "&tgl=" + tgl.value;
+        })
 
-    let qty = document.getElementById('qty');
-    let jmlHarga = document.getElementById('jmlHarga');
-    let harga = document.getElementById('harga');
-    qty.addEventListener('input', function() {
-        jmlHarga.value = qty.value * harga.value;
-    })
+        let qty = document.getElementById('qty');
+        let jmlHarga = document.getElementById('jmlHarga');
+        let harga = document.getElementById('harga');
+        qty.addEventListener('input', function() {
+            jmlHarga.value = qty.value * harga.value;
+        })
     </script>
 
     <?php
