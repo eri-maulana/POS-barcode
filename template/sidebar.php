@@ -88,7 +88,7 @@
                </a>
             </li>
             <li class="nav-item">
-               <a href="" class="nav-link">
+               <a href="<?= $main_url ?>laporan-barang-keluar" class="nav-link">
                   <i class="fas fa-chart-line nav-icon text-sm "></i>
                   <p>Laporan Barang Keluar</p>
                </a>
