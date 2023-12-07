@@ -69,32 +69,32 @@
             ?>
             <li class="nav-header">Transaksi</li>
             <li class="nav-item">
-               <a href="<?= $main_url ?>barang-masuk" class="nav-link">
+               <a href="<?= $main_url ?>barang-masuk" class="nav-link <?= menuBarangMasuk(); ?>">
                   <i class="fas fa-shopping-cart nav-icon text-sm "></i>
                   <p>Barang Masuk</p>
                </a>
             </li>
             <li class="nav-item">
-               <a href="<?= $main_url ?>barang-keluar" class="nav-link">
+               <a href="<?= $main_url ?>barang-keluar" class="nav-link <?= menuBarangKeluar() ?>">
                   <i class="fas fa-file-invoice nav-icon text-sm "></i>
                   <p>Barang Keluar</p>
                </a>
             </li>
             <li class="nav-header">Laporan</li>
             <li class="nav-item">
-               <a href="<?= $main_url ?>laporan-barang-masuk" class="nav-link">
+               <a href="<?= $main_url ?>laporan-barang-masuk" class="nav-link <?= menuRBarangMasuk(); ?>">
                   <i class="fas fa-chart-pie nav-icon text-sm "></i>
                   <p>Laporan Barang Masuk</p>
                </a>
             </li>
             <li class="nav-item">
-               <a href="<?= $main_url ?>laporan-barang-keluar" class="nav-link">
+               <a href="<?= $main_url ?>laporan-barang-keluar" class="nav-link <?= menuRBarangKeluar(); ?>">
                   <i class="fas fa-chart-line nav-icon text-sm "></i>
                   <p>Laporan Barang Keluar</p>
                </a>
             </li>
             <li class="nav-item">
-               <a href="" class="nav-link">
+               <a href="<?= $main_url ?>stock" class="nav-link <?= menuStock(); ?>">
                   <i class="fas fa-warehouse nav-icon text-sm "></i>
                   <p>Laporan Stock Barang</p>
                </a>
@@ -105,7 +105,7 @@
             ?>
                <li class="nav-header">Akun</li>
                <li class="nav-item">
-                  <a href="<?= $main_url; ?>user/data-user.php" class="nav-link">
+                  <a href="<?= $main_url; ?>user/data-user.php" class="nav-link <?= menuPengguna(); ?>">
                      <i class="far fa-user-circle nav-icon text-sm "></i>
                      <p>Data Pengguna</p>
                   </a>

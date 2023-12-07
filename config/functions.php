@@ -137,6 +137,66 @@ function menuBarang()
    }
    return $result;
 }
+// membuat sidebar barang tersorot ketika berada di halaman tersebut
+function menuStock()
+{
+   if (userMenu() == 'stock') {
+      $result = 'active';
+   } else {
+      $result = null;
+   }
+   return $result;
+}
+// membuat sidebar barang tersorot ketika berada di halaman tersebut
+function menuRBarangMasuk()
+{
+   if (userMenu() == 'laporan-barang-masuk') {
+      $result = 'active';
+   } else {
+      $result = null;
+   }
+   return $result;
+}
+// membuat sidebar barang tersorot ketika berada di halaman tersebut
+function menuBarangMasuk()
+{
+   if (userMenu() == 'barang-masuk') {
+      $result = 'active';
+   } else {
+      $result = null;
+   }
+   return $result;
+}
+// membuat sidebar barang tersorot ketika berada di halaman tersebut
+function menuRBarangKeluar()
+{
+   if (userMenu() == 'laporan-barang-keluar') {
+      $result = 'active';
+   } else {
+      $result = null;
+   }
+   return $result;
+}
+// membuat sidebar barang tersorot ketika berada di halaman tersebut
+function menuBarangKeluar()
+{
+   if (userMenu() == 'barang-keluar') {
+      $result = 'active';
+   } else {
+      $result = null;
+   }
+   return $result;
+}
+// membuat sidebar barang tersorot ketika berada di halaman tersebut
+function menuPengguna()
+{
+   if (userMenu() == 'user') {
+      $result = 'active';
+   } else {
+      $result = null;
+   }
+   return $result;
+}
 
 // merubah format tanggal amerika menjadi format indonesia (dd-mm-yyyy)
 function in_date($tgl)
