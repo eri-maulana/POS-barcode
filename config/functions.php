@@ -206,3 +206,15 @@ function in_date($tgl)
    $thn = substr($tgl, 0, 4);
    return "$tg-$bln-$thn";
 }
+
+// fungsi menghitung omzet / total penjualan
+function omzet()
+{
+   global $koneksi;
+   $queryOmzet = mysqli_query($koneksi, "SELECT sum(total) as omzet FROM tbl_jual_head");
+   $data = mysqli_fetch_assoc($queryOmzet);
+   $omzet = number_format($data['omzet'], 0, ',', '.');
+
+
+   return $omzet;
+}
